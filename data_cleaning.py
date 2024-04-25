@@ -1,4 +1,4 @@
-from abc import ABC, abstractclassmethod
+from abc import ABC, abstractmethod
 from typing import Union
 import numpy as np
 import pandas as pd
@@ -8,12 +8,12 @@ from sklearn.model_selection import train_test_split
 class DataWorks(ABC):
     '''Abstract class defining the strategy for handeling the data'''
     
-    @abstractclassmethod
+    @abstractmethod
     def handle_data(self, data: pd.DataFrame):
         pass
 
 
-class DataCleaning(DataWorks):
+class DataCleaningStrategy(DataWorks):
     def handle_data(self, data: pd.DataFrame):
         
         data.drop([
@@ -47,4 +47,11 @@ class DivideData(DataWorks):
 
         return X_train, X_test, y_train, y_test
     
-
+# TODO Create a DataCleaning class to handle data
+class DataCleaning:
+    def __init__(self, data, strategy:DataWorks ):
+        self.df = data
+        self.strategy = strategy
+    
+    def handle_data(self):
+        return self.strategy.handle_data(self.df)
