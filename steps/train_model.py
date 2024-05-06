@@ -25,7 +25,7 @@ experiment_tracker = Client().active_stack.experiment_tracker
 # define step with experiment trakcer with name of it own 
 @steps(experiment_tracker=experiment_tracker)
 # define the train function with the input of trains and test and the config to the MDOelnameConfig
-def trail_model(X_train, y_train, X_test, y_test, config=ModelNameConfig) -> RegressorMixin:
+def train_model(X_train, y_train, X_test, y_test, config=ModelNameConfig) -> RegressorMixin:
     model = None
     tune = None
 
