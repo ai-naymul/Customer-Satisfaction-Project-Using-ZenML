@@ -1,7 +1,7 @@
 # Import pandas
 import pandas as pd
 # import tuple from typing
-from typing import Tuple
+from typing import Tuple  # Ensure this is correctly imported
 # import all those class from the data cleaning file
 from data_cleaning import (DataCleaningStrategy, DivideData, DataCleaning)
 
@@ -28,4 +28,6 @@ def clean_data(data) -> Tuple[
     divide_strategy = DivideData()
     data_cleaning = DataCleaning(preprocessed_data, divide_strategy)
     X_train, X_test, y_train, y_test = data_cleaning.handle_data()
+    return X_train, X_test, y_train, y_test
+    return X_train, X_test, y_train, y_test
     return X_train, X_test, y_train, y_test
